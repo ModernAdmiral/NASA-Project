@@ -13,7 +13,7 @@ import local.jacksonmccomas.nasa.services.DatesService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api/v1/")
 public class DatesController {
 	
 	@Inject

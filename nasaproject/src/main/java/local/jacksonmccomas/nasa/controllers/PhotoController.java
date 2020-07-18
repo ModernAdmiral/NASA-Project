@@ -20,7 +20,7 @@ import local.jacksonmccomas.nasa.services.PhotoService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api/v1/")
 public class PhotoController {
 	
 	@Inject
