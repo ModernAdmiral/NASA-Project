@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
+import { Rover } from "../../models/Rovers";
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 });
 
 type RoverCardProps = {
-  rover: string;
+  rover: any;
   image: string;
   description: string;
   info: string;
@@ -26,6 +26,7 @@ type RoverCardProps = {
 
 export default function RoverCard(props: RoverCardProps) {
   const classes = useStyles();
+  console.log("props.rover", props.rover);
 
   return (
     <Card className={classes.card}>
