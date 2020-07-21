@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { Rover } from "../../models/Rovers";
+import { setRoverName } from "../../state/app.actions";
 const useStyles = makeStyles({
   card: {
     maxWidth: 345,
@@ -46,7 +46,14 @@ export default function RoverCard(props: RoverCardProps) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => {
+            console.log(typeof props.rover, "rover");
+            setRoverName(props.rover);
+          }}
+        >
           Select
         </Button>
         <Button size="small" color="primary" href={props.info} target="_">

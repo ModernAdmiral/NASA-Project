@@ -1,7 +1,7 @@
 import React from "react";
 import { RoverList } from "../components/SelectRover/RoverList";
 import { SelectDate } from "../components/SelectDate";
-import { RoverImage } from "../components/RoverImage";
+import { RoverImages } from "../components/RoverImages";
 import { Header } from "../components/Header";
 import styled from "styled-components";
 
@@ -13,7 +13,7 @@ export const RoverImagePage = () => {
       <Header />
       <RoverList />
       <SelectDate />
-      <RoverImage />
+      <RoverImages />
     </Page>
   );
 };
