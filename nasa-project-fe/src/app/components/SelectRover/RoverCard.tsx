@@ -8,14 +8,34 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { setRoverName } from "../../state/app.actions";
-const useStyles = makeStyles({
+import {
+  useSelector as useReduxSelector,
+  useDispatch,
+  TypedUseSelectorHook,
+} from "react-redux";
+import { State } from "../../state/app.reducer";
+
+const useStyles = makeStyles((theme) => ({
   card: {
-    maxWidth: 345,
+    maxWidth: "345px",
+    // [theme.breakpoints.down("sm")]: {
+    //   maxWidth: "20vh",
+    //   maxHeight: "30vh",
+    // },
+    flexShrink: 2,
+    marginTop: "2vh",
   },
   media: {
-    height: 160,
+    height: 175,
   },
-});
+  selected: {
+    color: "#fff",
+    backgroundColor: "#3f51b5",
+    "&:hover": {
+      color: "#3f51b5",
+    },
+  },
+}));
 
 type RoverCardProps = {
   rover: any;
@@ -23,11 +43,13 @@ type RoverCardProps = {
   description: string;
   info: string;
 };
+const useSelector: TypedUseSelectorHook<State> = useReduxSelector;
 
 export default function RoverCard(props: RoverCardProps) {
+  const dispatch = useDispatch();
   const classes = useStyles();
   console.log("props.rover", props.rover);
-
+  const currentRover = useSelector((state) => state.rovers.rover);
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -49,12 +71,13 @@ export default function RoverCard(props: RoverCardProps) {
         <Button
           size="small"
           color="primary"
+          className={props.rover === currentRover ? classes.selected : ""}
           onClick={() => {
             console.log(typeof props.rover, "rover");
-            setRoverName(props.rover);
+            setRoverName(props.rover)(dispatch);
           }}
         >
-          Select
+          {props.rover === currentRover ? "Selected" : "Select"}
         </Button>
         <Button size="small" color="primary" href={props.info} target="_">
           Learn More

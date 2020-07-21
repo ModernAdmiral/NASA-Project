@@ -1,20 +1,17 @@
 import axios from "axios";
-import { AccordionActions } from "@material-ui/core";
-
+import { Dispatch } from "redux";
 // import { Rover } from "../../models/Rovers";
 type Images = any;
 type GetImagesStart = { type: "GET_IMAGES_START" };
 type GetImagesSuccess = { type: "GET_IMAGES_SUCCESS"; payload: Images };
 type GetImagesFail = { type: "GET_IMAGES_FAILURE"; payload: string };
 type SetPhotoDate = { type: "DATE_CHANGE"; payload: string };
-type SetRoverName = { type: "ROVER_CHANGE"; payload: string };
 
 export type GetImages =
   | GetImagesStart
   | GetImagesSuccess
   | GetImagesFail
-  | SetPhotoDate
-  | SetRoverName;
+  | SetPhotoDate;
 
 export const getImages = (date: string, rover: string) => (
   dispatch: (action: GetImages) => void
@@ -36,17 +33,19 @@ export const setPhotoDate = (date: string) => (
   dispatch({ type: "DATE_CHANGE", payload: date });
 };
 
-// export const setPhotoDate = (date: string) => {
-//   const ret = { type: "DATE_CHANGE", payload: date };
-//   return ret;
+// export const setPhotoDate = (date: string) => (action: GetImages) => {
+//   return { type: "DATE_CHANGE", payload: date };
 // };
 
-export const setRoverName = (roverName: string) => (
-  dispatch: (action: GetImages) => void
-) => {
-  dispatch({ type: "ROVER_CHANGE", payload: roverName });
-};
+// export const setRoverName = (roverName: string) => (
+//   dispatch: (action: GetImages) => void
+// ) => {
+//   dispatch({ type: "ROVER_CHANGE", payload: roverName });
+// };
 
+// export const setRoverName = (roverName: string) => {
+//   return { type: "ROVER_CHANGE", payload: roverName };
+// };
 // export const setPhotoDate = (date: string) => (
 //   dispatch: (action: GetImages) => void
 // ) => {

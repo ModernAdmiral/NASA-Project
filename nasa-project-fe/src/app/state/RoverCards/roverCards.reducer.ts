@@ -1,16 +1,17 @@
-import { Rover } from "../../models/Rovers";
 import { GetRovers } from "./roverCards.actions";
 
 export type RoversState = {
   list: any;
   error: string;
   loading: boolean;
+  rover: string;
 };
 
 const initialState: RoversState = {
   list: [],
   error: "",
   loading: true,
+  rover: "Curiosity",
 };
 
 export const roversReducer = (state = initialState, action: GetRovers) => {
@@ -21,6 +22,8 @@ export const roversReducer = (state = initialState, action: GetRovers) => {
       return { ...state, error: "", loading: false, list: [action.payload] };
     case "GET_ROVERS_FAILURE":
       return { ...state, error: action.payload, loading: false, list: [] };
+    case "ROVER_CHANGE":
+      return { ...state, rover: action.payload };
     default:
       return state;
   }
