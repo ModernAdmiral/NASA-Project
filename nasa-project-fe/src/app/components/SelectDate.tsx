@@ -35,7 +35,7 @@ export const SelectDate = () => {
       }
     }
     dateFunction();
-  }, [selectedDate]);
+  }, [selectedDate, dispatch]);
   const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
   };

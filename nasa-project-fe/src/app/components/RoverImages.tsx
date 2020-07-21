@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
-import {
-  useDispatch,
-  useSelector as useReduxSelector,
-  TypedUseSelectorHook,
-} from "react-redux";
 import { State } from "../state/app.reducer";
 import { getImages } from "../state/app.actions";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { SyncLoader } from "react-spinners";
+import {
+  useDispatch,
+  useSelector as useReduxSelector,
+  TypedUseSelectorHook,
+} from "react-redux";
+
 const useStyles = makeStyles((theme) => ({
   imagesContainer: {
     margin: "0 5%",
@@ -37,7 +38,7 @@ export const RoverImages = () => {
   const rover = useSelector((state) => state.rovers.rover);
   useEffect(() => {
     getImages(images.date, rover)(dispatch);
-  }, [images.date, rover]);
+  }, [images.date, rover, dispatch]);
   return (
     <Grid
       container
@@ -52,7 +53,7 @@ export const RoverImages = () => {
             return (
               <Grid item sm={3} xs={5}>
                 <a href={e.img_src}>
-                  <img src={e.img_src} className={classes.image} />
+                  <img src={e.img_src} className={classes.image} alt="Rover" />
                 </a>
               </Grid>
             );

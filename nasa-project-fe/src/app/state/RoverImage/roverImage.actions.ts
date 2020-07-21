@@ -1,6 +1,4 @@
 import axios from "axios";
-import { Dispatch } from "redux";
-// import { Rover } from "../../models/Rovers";
 type Images = any;
 type GetImagesStart = { type: "GET_IMAGES_START" };
 type GetImagesSuccess = { type: "GET_IMAGES_SUCCESS"; payload: Images };
