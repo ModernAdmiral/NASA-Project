@@ -21,10 +21,10 @@ import local.jacksonmccomas.nasa.models.RoverList;
 
 @Component
 public class NasaClient<RedirectFilterWorkAround> {
-	private static final String REST_URI = "https://api.nasa.gov/mars-photos/api/v1";
-	private static final String API_KEY = "u5aqcf82GPi44mlcBugzBhiNPVNRKieY886mNbHD";
-	private static final String API_KEY_PARAM_NAME = "api_key";
-	private static final String EARTH_DATE_PARAM_NAME = "earth_date";
+	private static final String uri = "https://api.nasa.gov/mars-photos/api/v1";
+	private static final String apiKey = "u5aqcf82GPi44mlcBugzBhiNPVNRKieY886mNbHD";
+	private static final String apiKeyLabel = "api_key";
+	private static final String earthDateLabel = "earth_date";
 	
 	private final Feature feature = new LoggingFeature(Logger.getLogger(getClass().getName()), Verbosity.PAYLOAD_ANY);
 	private final JacksonJsonProvider jacksonJsonProvider = new JacksonJaxbJsonProvider().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -33,20 +33,20 @@ public class NasaClient<RedirectFilterWorkAround> {
 
 
 	public RoverList getRoverList() {
-		return client.target(REST_URI + "/rovers")
-				.queryParam(API_KEY_PARAM_NAME, API_KEY)
+		return client.target(uri + "/rovers")
+				.queryParam(apiKeyLabel, apiKey)
 				.request(MediaType.APPLICATION_JSON)
 				.get(RoverList.class);
 	}
 	
 	public PhotoList getPhotoList(String name, String date) {
-		StringBuilder stringBuilder = new StringBuilder(REST_URI)
+		StringBuilder stringBuilder = new StringBuilder(uri)
 			.append("/rovers/")
 			.append(name)
 			.append("/photos");
 		return client.target(stringBuilder.toString())
-				.queryParam(EARTH_DATE_PARAM_NAME, date)
-				.queryParam(API_KEY_PARAM_NAME, API_KEY)
+				.queryParam(earthDateLabel, date)
+				.queryParam(apiKeyLabel, apiKey)
 				.request(MediaType.APPLICATION_JSON)
 				.get(PhotoList.class);
 	}

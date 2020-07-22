@@ -12,7 +12,7 @@ import local.jacksonmccomas.nasa.services.RoverService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api/v1/")
 public class RoverController {
 
 	@Inject
