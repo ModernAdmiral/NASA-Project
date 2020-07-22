@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { RoverCard } from "./RoverCard";
+import { RoverCard } from "../RoverCard/RoverCard";
 import { makeStyles } from "@material-ui/core/styles";
-import { getRovers } from "../../state/app.actions";
-import { State } from "../../state/app.reducer";
-import { data } from "./RoverCardData";
+import { getRovers } from "../../../state/app.actions";
+import { State } from "../../../state/app.reducer";
+import { data } from "../RoverCard/RoverCardData";
 import { Typography } from "@material-ui/core";
-import { RoversList } from "../../models/Rovers";
+import { RoversList } from "../../../models/Rovers";
 import {
   useSelector as useReduxSelector,
   useDispatch,
@@ -50,7 +50,7 @@ export const RoverList = () => {
             return (
               <RoverCard
                 rover={roversList.name}
-                image={card.image}
+                imageUrl={card.imageUrl}
                 description={card.description}
                 info={card.info}
                 key={roversList.id}
