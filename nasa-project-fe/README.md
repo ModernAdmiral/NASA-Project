@@ -1,68 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Front-end
 
-## Available Scripts
+This is a Single Page React application written using TypeScript and Redux. It makes use of Material-UI for the visuals and Material-UI Grid for the layout, helping to enable this application to be fully responsive for any mobile, tablet, or computer. Axios is used to pull date in from the backend.
 
-In the project directory, you can run:
+## Feature-set
 
-### `yarn start`
+- Each Rover name is mapped to each card from the backend api.
+- "Select" buttons on cards update to indicate which Rover is selected
+- Date picker only allows you to choose from range of dates that the selected rover has been active on mars
+- Images automatically update based on the date and rover selected
+- Images take you to online image source when clicked for higher defininition viewing
+- *All* components contain a suite of basic unit tests
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Known Limitations and Areas for Improvement
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- The initial state should update as vaild date for every rover. Because there is not a date all rovers existed on mars at the same time, the Spirit rover starts out at an invalid date if selected first, and needs to be changed by the user to view photos. Alternatively, inital state could be left empty and would have no rover selected to start as well as a dialog to indicate no rover is selected in image view
+- Upon having more time to work on this project, I would like to implement even deeper tests. 
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Download or clone this repo
+- Navigate into the local directory
+- Ensure back-end is being served on `localhost:8080`  
+- run `npm install` to download needed dependencies
+- run `npm start` to start server on default port (`localhost:3000`)
+- run `npm run test` to run the test suite

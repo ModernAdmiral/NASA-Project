@@ -7,13 +7,13 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { setRoverName } from "../../state/app.actions";
+import { setRoverName } from "../../../state/app.actions";
 import {
   useSelector as useReduxSelector,
   useDispatch,
   TypedUseSelectorHook,
 } from "react-redux";
-import { State } from "../../state/app.reducer";
+import { State } from "../../../state/app.reducer";
 
 const useStyles = makeStyles({
   card: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 
 type RoverCardProps = {
   rover: string;
-  image: string;
+  imageUrl: string;
   description: string;
   info: string;
 };
@@ -50,7 +50,7 @@ export const RoverCard = (props: RoverCardProps) => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.image}
+          image={props.imageUrl}
           title={`${props.rover} Rover`}
         />
         <CardContent>
