@@ -51,4 +51,5 @@ photos: [
 
 - Download or clone this repository
 - Navigate to local directory
-
+- open up using intellij
+- build and run
