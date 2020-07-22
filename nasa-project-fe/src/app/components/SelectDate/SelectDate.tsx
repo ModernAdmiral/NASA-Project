@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import DateFnsUtils from "@date-io/date-fns";
-import { setPhotoDate } from "../state/RoverImage/roverImage.actions";
+import { setPhotoDate } from "../../state/RoverImage/roverImage.actions";
 import TextField from "@material-ui/core/TextField";
-import { State } from "../state/app.reducer";
+import { State } from "../../state/app.reducer";
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -18,6 +18,7 @@ const useSelector: TypedUseSelectorHook<State> = useReduxSelector;
 export const SelectDate = () => {
   let dispatch = useDispatch();
   const rover = useSelector((state) => state.rovers.rover);
+
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(
     new Date("2014-08-18")
   );

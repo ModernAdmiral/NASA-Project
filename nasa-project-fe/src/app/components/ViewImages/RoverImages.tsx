@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { State } from "../state/app.reducer";
-import { getImages } from "../state/app.actions";
+import { State } from "../../state/app.reducer";
+import { getImages } from "../../state/app.actions";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { SyncLoader } from "react-spinners";
-import { ImageDetails } from "../models/Images";
+import { ImageDetails } from "../../models/Images";
 import {
   useDispatch,
   useSelector as useReduxSelector,
