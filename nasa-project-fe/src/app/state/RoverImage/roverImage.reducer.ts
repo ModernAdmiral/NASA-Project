@@ -1,5 +1,8 @@
+import { GetImages } from "./roverImage.actions";
+import { Image, initialImageListState } from "../../models/Images";
+
 export type ImagesState = {
-  list: any;
+  list: Image;
   error: string;
   loading: boolean;
   date: string;
@@ -10,13 +13,13 @@ export type DateState = {
 };
 
 const initialState: ImagesState = {
-  list: [],
+  list: initialImageListState,
   error: "",
   loading: true,
   date: "2014-08-17",
 };
 
-export const imagesReducer = (state = initialState, action: any) => {
+export const imagesReducer = (state = initialState, action: GetImages) => {
   switch (action.type) {
     case "GET_IMAGES_START":
       return { ...state, error: "", loading: true };

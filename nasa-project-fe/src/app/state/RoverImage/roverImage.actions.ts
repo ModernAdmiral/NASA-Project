@@ -1,5 +1,7 @@
 import axios from "axios";
-type Images = any;
+import { Image } from "../../models/Images";
+
+type Images = Image;
 type GetImagesStart = { type: "GET_IMAGES_START" };
 type GetImagesSuccess = { type: "GET_IMAGES_SUCCESS"; payload: Images };
 type GetImagesFail = { type: "GET_IMAGES_FAILURE"; payload: string };
@@ -30,22 +32,3 @@ export const setPhotoDate = (date: string) => (
 ) => {
   dispatch({ type: "DATE_CHANGE", payload: date });
 };
-
-// export const setPhotoDate = (date: string) => (action: GetImages) => {
-//   return { type: "DATE_CHANGE", payload: date };
-// };
-
-// export const setRoverName = (roverName: string) => (
-//   dispatch: (action: GetImages) => void
-// ) => {
-//   dispatch({ type: "ROVER_CHANGE", payload: roverName });
-// };
-
-// export const setRoverName = (roverName: string) => {
-//   return { type: "ROVER_CHANGE", payload: roverName };
-// };
-// export const setPhotoDate = (date: string) => (
-//   dispatch: (action: GetImages) => void
-// ) => {
-//   dispatch({ type: "DATE_CHANGE", payload: date });
-// };

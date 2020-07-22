@@ -1,7 +1,8 @@
 import { GetRovers } from "./roverCards.actions";
+import { Rover } from "../../models/Rovers";
 
 export type RoversState = {
-  list: any;
+  list: Rover[];
   error: string;
   loading: boolean;
   rover: string;

@@ -1,8 +1,8 @@
-interface Rovers {
-  id: string;
+export interface RoversList {
   name: string;
+  id: number;
 }
 
 export interface Rover {
-  rovers: Rovers[];
+  rovers: RoversList[];
 }

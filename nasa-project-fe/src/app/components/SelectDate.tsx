@@ -18,27 +18,28 @@ const useSelector: TypedUseSelectorHook<State> = useReduxSelector;
 export const SelectDate = () => {
   let dispatch = useDispatch();
   const rover = useSelector((state) => state.rovers.rover);
-
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(
     new Date("2014-08-18")
   );
+
   const TextFieldComponent = (props: any) => {
     return <TextField {...props} disabled={true} variant="outlined" />;
   };
+
   useEffect(() => {
     async function dateFunction() {
       const date = await selectedDate?.toISOString().slice(0, 10);
-      console.log("date async", date);
-
       if (date && date.length === 10) {
         setPhotoDate(date)(dispatch);
       }
     }
     dateFunction();
   }, [selectedDate, dispatch]);
+
   const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
   };
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <>

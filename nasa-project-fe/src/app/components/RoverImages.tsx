@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { SyncLoader } from "react-spinners";
+import { ImageDetails } from "../models/Images";
 import {
   useDispatch,
   useSelector as useReduxSelector,
@@ -49,7 +50,7 @@ export const RoverImages = () => {
     >
       {images.loading && <SyncLoader />}
       {!images.loading && images.list[0].photos.length > 0
-        ? images.list[0].photos.map((e: any) => {
+        ? images.list[0].photos.map((e: ImageDetails) => {
             return (
               <Grid item sm={3} xs={5}>
                 <a href={e.img_src}>
