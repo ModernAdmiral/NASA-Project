@@ -28,4 +28,4 @@ This is a Java SpringBoot backend with 2 REST API endpoints. One returns a list 
 #### Known Limitations and Areas for Improvement
 
 - The very next thing I would do for this backend is add unit tests to it. 
-- A feature to serve images in a way for the user to download the images would be the next larger feature to implement
+- A feature to serve images in a way for the user to download the images would be the next larger feature to implement. Because of the time I had available to work on this project, this was unfortunately something I couldn't get to.
